@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>random Dog</title>
+    <style>
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.gallery {
+  column-count: 4;
+  --webkit-column-count: 4;
+  --moz-column-count: 4;
+  gap: 1rem;
+  padding: 4rem;
+}
+
+.image img {
+  height: auto;
+  width: 100%;
+}
+
+/* Responsive-ness for different screen-sizes */
+@media screen and (max-width: 810px) {
+  .gallery {
+    column-count: 3;
+    --webkit-column-count: 3;
+    --moz-column-count: 3;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .gallery {
+    column-count: 2;
+    --webkit-column-count: 2;
+    --moz-column-count: 2;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .gallery {
+    column-count: 1;
+    --webkit-column-count: 1;
+    --moz-column-count: 1;
+  }
+}
+
+    </style>
+    <script src="https://kit.fontawesome.com/ee7a178a15.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Opan+Sans">
+</head>
+<body>
+    
+    <section class="gallery">
+       
+      </section>
+
+    <script>
+        const url = 'https://dog.ceo/api/breeds/image/random/10';
+         async function getRandomDog(url){
+             try {
+               const res = await fetch(url);
+               if(!res.ok){
+               throw new Error('HTTP error! status'+res.status)
+               }
+               const data = await res.json();
+               displayImage(data.message)
+            
+           } catch (error) {
+            console.error("Error",error)
+           }
+         }
+
+
+        function displayImage(data){
+            console.log(data)
+            const gallery = document.querySelector('.gallery');
+
+            for(let i=0; i<data.length; i++){
+                const imageCard = document.createElement('div');
+                imageCard.classList = 'image'
+         const img = document.createElement('img');
+         img.src = data[i];
+         imageCard.appendChild(img);
+         gallery.appendChild(imageCard)
+            }
+        
+        }
+
+        document.addEventListener('DOMContentLoaded',()=>{
+            getRandomDog(url)
+        })
+        
+    </script>
+</body>
+</html>

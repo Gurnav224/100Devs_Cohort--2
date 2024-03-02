@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Comparision</title>
+</head>
+<body>
+    <input type="text" id="num1">
+    <input type="text" id="num2">
+    <button id="compare-btn">Compare</button>
+    <h1 id="Result">result</h1>
+
+    <script>
+        const compareBtn = document.querySelector("#compare-btn")
+        const result = document.querySelector("#Result");
+
+        compareBtn.addEventListener("click",function(){
+            const num1 = Number(document.querySelector("#num1").value);
+            const num2 = Number(document.querySelector("#num2").value);
+
+            if(num1>num2){
+             result.innerHTML = `${num1} is greater than ${num2}`
+            }
+            else if(num2>num1){
+                result.innerHTML = `${num2} is greater than ${num1}`
+            }else{
+                result.innerHTML = `${num1} === ${num2}`
+            }
+        })
+    </script>
+</body>
+</html>

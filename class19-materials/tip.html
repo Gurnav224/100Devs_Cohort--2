@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tip Calculator Lab</title>
+  </head>
+  <body>
+    <!-- Write your code here -->
+    <input type="number" id="billAmount" />
+    <input type="number" id="tipPercentage" />
+    <button id="calculateTip">CalculateTip</button>
+    <p id="tipAmount"></p>
+
+  
+
+    <script>
+      const billAmount = document.getElementById("billAmount");
+      const tipPercentage = document.getElementById("tipPercentage");
+      const calculateTipBtn = document.getElementById("calculateTip");
+
+
+    function newFunction() {
+        const bill = parseFloat(billAmount.value);
+        const tip = parseFloat(tipPercentage.value);
+
+        console.log(bill, tip);
+
+        if (isNaN(bill) || isNaN(tip) || bill <= 0 || tip <= 0) {
+            document.getElementById("tipAmount").innerText = "Invalid Input";
+        } else {
+            const tipAmt = bill * (tip / 100);
+
+            const totalAmt = bill + tipAmt;
+
+            console.log(totalAmt);
+            document.getElementById("tipAmount").innerText = `Tip Amount: ${totalAmt}`;
+        }
+    };
+
+
+calculateTipBtn.addEventListener("click", newFunction);
+
+    </script>
+
+    <script src="store.js"></script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="temp">
+    <button id="convertBtn">Convert</button>
+    <h1 id="output"></h1>
+
+    <script>
+        const convertBtn = document.querySelector('#convertBtn');
+
+        convertBtn.addEventListener('click',function(){
+            const temp = Number(document.querySelector('#temp').value);
+
+            let fehrn = temp*9/5+32;
+
+            document.querySelector('#output').innerHTML = fehrn;
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript calculator</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="calculator__container">
+        <input class="display">
+        </input>
+        <div class="buttons__container">
+            <div class="button__row">
+                <button onclick="appendToResult('7')">7</button>
+                <button onclick="appendToResult('8')">8</button>
+                <button onclick="appendToResult('9')">9</button>
+                <button onclick="appendToResult('/')">/</button>
+            </div>
+           <div class="button__row">
+            <button onclick="appendToResult('4')">4</button>
+            <button onclick="appendToResult('5')">5</button>
+            <button onclick="appendToResult('6')">6</button>
+            <button onclick="appendToResult('*')">x</button>
+           </div>
+           <div class="button__row">
+            <button onclick="appendToResult('1')">1</button>
+            <button onclick="appendToResult('2')">2</button>
+            <button onclick="appendToResult('3')">3</button>
+            <button onclick="appendToResult('+')">+</button>
+           </div>
+           <div class="button__row">
+            <button onclick="appendToResult('0')">0</button>
+            <button onclick="appendToResult('.')">.</button>
+            <button onclick="appendToResult('-')">-</button>
+            <button  onclick="clearResult()">C</button>
+        </div>
+        <div class="button__row">
+              
+               <button class="result" onclick="calculateResult()">=</button>
+
+           </div>
+        </div>
+    </div>
+
+
+    <script>
+        
+        function appendToResult(value){
+            console.log(value)
+            let inputval =  document.querySelector(".display").value += value
+
+        }
+
+        function clearResult(){
+            document.querySelector('.display').value = ""
+        }
+
+        function calculateResult(){
+           let resultElement =  document.querySelector('.display');
+           let expressions = resultElement.value;
+
+           let result = eval(expressions);
+
+           if(!isNaN(result)){
+            resultElement.value = result
+           }
+           else{
+            resultElement.value = 'Error'
+           }
+        }
+
+    </script>
+</body>
+</html>

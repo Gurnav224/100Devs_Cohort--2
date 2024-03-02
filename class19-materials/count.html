@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea id="inputText"></textarea>
+    <button id="countButton">Count Words</button>
+    <div>
+        Total Words:
+        <span id="wordCount">0</span>
+    </div>
+
+    <script>
+        const inputText = document.getElementById("inputText");
+        
+       inputText.addEventListener("input",function(){
+        const count = inputText.value;
+
+        document.getElementById("wordCount").innerHTML = count.split(" ").length;
+       }) 
+    </script>
+</body>
+</html>

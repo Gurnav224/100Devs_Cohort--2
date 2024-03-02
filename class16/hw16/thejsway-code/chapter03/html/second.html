@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seconds</title>
+</head>
+<body>
+    <input type="text" id="hours">
+    <input type="text" id="minutes">
+    <input type="text" id="second">
+    <button id="time">Check Time</button>
+    <h2 id="output"></h2>
+
+    <script>
+        const btn = document.querySelector("#time");
+
+        btn.addEventListener("click",function(){
+            let  hour = Number(document.querySelector("#hours").value);
+            let minutes = Number(document.querySelector("#minutes").value);
+            let second = Number(document.querySelector("#second").value);
+
+            if (hour<0 || hour>23 || minutes<0 || minutes>59 || second<0 || second>59){
+   return "Invalid Input"
+            
+}
+
+second++;
+
+if(second === 60){
+    second = 0;
+    minutes++;
+    if(minutes === 60){
+        minutes = 0;
+        hour++;
+        if(hour === 24){
+            hour = 0;
+        }
+    }
+}
+
+document.querySelector("#output").innerHTML = `${hour}H:${minutes}M:${second}S`
+        })
+
+    </script>
+</body>
+</html>

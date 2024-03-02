@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vat Calculation</title>
+</head>
+<body>
+    <input type="number" id="raw-price">
+    <button id="final-price-button">check Final price</button>
+     <h2 id="output"></h2>
+    <script>
+        const Btn = document.querySelector("#final-price-button");
+        const output = document.querySelector("#output");
+
+        Btn.addEventListener("click",function(){
+        const rawPrice = Number( document.querySelector("#raw-price").value);
+
+            let finalPrice  = rawPrice+(rawPrice*0.206);
+            output.innerHTML = finalPrice
+        })
+    </script>
+</body>
+</html>
