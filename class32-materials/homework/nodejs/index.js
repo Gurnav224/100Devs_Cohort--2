@@ -1,7 +1,12 @@
-var cli = require('cli-color');
+import getPosts , {randomPostLength} from './postConroller.js'
+
+// const {generateRandom, celciusToFahrenheit} = require('./utilis')
+
+// console.log(generateRandom())
+
+// console.log(celciusToFahrenheit(18))
 
 
+console.log(getPosts())
 
-(function(name){
-    console.log(name)
-})('Gurnav')
+console.log(randomPostLength())

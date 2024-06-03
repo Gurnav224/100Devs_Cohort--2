@@ -1,18 +1,14 @@
 {
-  "name": "nodejs-tutorial",
+  "name": "nodejs",
   "version": "1.0.0",
-  "description": "a video tutorial of nodejs",
+  "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "dev":"nodemon --env-file=.env server.js"
   },
-  "keywords": [
-    "nodejs",
-    "javascript"
-  ],
-  "author": "Gurnav <chaudharyg856@gmail.com>",
-  "license": "ISC",
-  "dependencies": {
-    "cli-color": "^2.0.4"
-  }
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
