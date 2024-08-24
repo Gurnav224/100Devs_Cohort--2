@@ -1,0 +1,23 @@
+
+
+GET http://localhost:3001/api/persons
+
+###
+
+GET http://localhost:3001/api/persons/3
+
+###
+
+DELETE  http://localhost:3001/api/persons/5
+
+###
+
+POST http://localhost:3001/api/persons
+content-type: application/json
+
+{
+  
+    "name":"Noca",
+    "number":293023942,
+    "Email":"chaudha@gmai.com"
+}
