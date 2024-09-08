@@ -3,13 +3,22 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "NODE_ENV=production node --env-file=.env  server",
+    "dev": "NODE_ENV=development nodemon --env-file=.env server"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "express": "^4.19.2"
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "method-override": "^3.0.0",
+    "mongodb": "^6.8.0",
+    "mongoose": "^8.6.0",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
   }
 }

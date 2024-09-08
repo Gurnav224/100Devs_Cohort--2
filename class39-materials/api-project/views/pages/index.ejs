@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>todos</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      .completed {
+        text-decoration: line-through;
+      }
+      span {
+        margin-right: 5%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Todo application</h1>
+    <ul>
+      <% todos.forEach(function(todo) { %>
+      <li class="item">
+        <% if (todo.completed === true){ %>
+        <span class="completed"> <%= todo.title %> </span>
+        <% } else { %>
+        <span> <%= todo.title %> </span>
+        <% } %>
+        <span class="fa fa-trash"></span>
+      </li>
+      <% }) %>
+    </ul>
+
+    <h2>Left To do: <%= left %></h2>
+
+    <form action="/todos" method="POST">
+      <input type="text" name="title" id="title" />
+
+      <button type="submit">submit</button>
+    </form>
+
+    <script>
+      const item = document.querySelectorAll("span");
+      const itemCompletd = document.querySelectorAll("span.completed");
+      const deleteItem = document.querySelectorAll("span.fa-trash");
+
+
+    
+
+      Array.from(item).forEach((element) => {
+        element.addEventListener("click", markComplete);
+      });
+
+      Array.from(itemCompletd).forEach((completedTodoLi) => {
+        completedTodoLi.addEventListener("click", markUnComplete);
+      });
+
+      Array.from(deleteItem).forEach((deleteBtn)=>{
+        deleteBtn.addEventListener('click',deleteTodo)
+      })
+
+
+      function deleteTodo(){
+        const itemText = this.parentNode.childNodes[1].innerText.trim();
+        
+        fetch('/deleteTodo',{
+            method:'delete',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify({
+                title:itemText
+            })
+        })
+        .then((res)=> res.json())
+        .then((data)=>{
+            console.log("todo remove successfully",data)
+            location.reload()
+            this.parentNode.remove()
+        })
+      }
+
+      function markComplete() {
+        const itemText = this.parentNode.childNodes[1].innerText.trim();
+        console.log("Captured itemText:", itemText);
+
+        fetch("/markComplete", {
+          method: "put",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            title: itemText,
+          }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log("server response", data);
+            location.reload();
+          });
+      }
+
+      function markUnComplete() {
+        const itemText = this.parentNode.childNodes[1].innerText.trim();
+
+        console.log("captured text ", itemText);
+
+        fetch("/markUnComplete", {
+          method: "put",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            title: itemText,
+          }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log("unmark complete", data);
+            location.reload();
+          });
+      }
+    </script>
+  </body>
+</html>
