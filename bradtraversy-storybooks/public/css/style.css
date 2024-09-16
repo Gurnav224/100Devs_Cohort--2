@@ -1,0 +1,64 @@
+
+
+
+
+.custom-chip {
+    padding: 10px; /* Add extra padding for a bigger chip */
+    display: flex;
+    align-items: center; /* Aligns image and text vertically */
+}
+
+.custom-chip img {
+    border-radius: 50%; /* Make the image round */
+    width: 40px; /* Set a custom size for the image */
+    height: 40px; /* Keep the image a square */
+    object-fit: cover; /* Ensure the image scales correctly */
+    margin-right: 10px; /* Add space between the image and the text */
+}
+
+.custom-chip a {
+    font-size: 16px; /* Customize the font size */
+    font-weight: bold; /* Make the username stand out */
+    color: #333; /* Change the text color */
+    text-decoration: none; /* Remove underline from the link */
+}
+
+.custom-chip a:hover {
+    color: #007bff; /* Add a hover effect for the link */
+}
+
+
+p{
+    margin: 10px 0 !important;
+}
+
+.login-container {
+    width: 400px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+
+.fixed_action_btn {
+    position: fixed;
+    bottom: 20px;  /* Distance from the bottom */
+    right: 20px;   /* Distance from the right */
+    z-index: 1000; /* Ensure it stays above other content */
+}
+
+.btn-floating {
+    background-color: red; /* Optional: Adjust the color */
+    color: white;          /* Icon color */
+}
+
+.btn-floating i {
+    font-size: 24px;       /* Icon size */
+}
+
+.btn-float {
+float: left;
+}
+
+.img-small {
+width: 180px;
+}
